@@ -5,7 +5,7 @@
  *
  * Initial Author: art.spb, December 2009.
  *
- * Author: Magnus Holm (holmen@brasse.se) 
+ * Author: Magnus Holm (holmen@brasse.se)
  */
 
  theUILang.peerComment		= "Lägg till kommentar";
@@ -160,7 +160,7 @@
  theUILang.country[ "me" ] = "Montenegro";
  theUILang.country[ "mg" ] = "Madagaskar";
  theUILang.country[ "mh" ] = "Marshallöarna";
- theUILang.country[ "mk" ] = "Makedonien";
+ theUILang.country[ "mk" ] = "Nordmakedonien";
  theUILang.country[ "ml" ] = "Mali";
  theUILang.country[ "mm" ] = "Myanmar";
  theUILang.country[ "mn" ] = "Mongoliet";

@@ -5,7 +5,7 @@
  *
  * Initial Author: art.spb, December 2009.
  *
- * Author: 
+ * Author:
  */
 
  theUILang.peerComment		= "Add comment";
@@ -157,10 +157,10 @@
  theUILang.country[ "ma" ] = "Marokkó";
  theUILang.country[ "mc" ] = "Monaco";
  theUILang.country[ "md" ] = "Moldova";
- theUILang.country[ "me" ] = "Montenegró" 
+ theUILang.country[ "me" ] = "Montenegró"
  theUILang.country[ "mg" ] = "Madagascar";
  theUILang.country[ "mh" ] = "Marshall-szigetek";
- theUILang.country[ "mk" ] = "Macedónia";
+ theUILang.country[ "mk" ] = "Észak-Macedónia";
  theUILang.country[ "ml" ] = "Mali";
  theUILang.country[ "mm" ] = "Myanmar";
  theUILang.country[ "mn" ] = "Mongólia";

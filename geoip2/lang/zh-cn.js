@@ -5,7 +5,7 @@
  *
  * Initial Author: art.spb, December 2009.
  *
- * Author: 
+ * Author:
  */
 
  theUILang.peerComment		= "添加注释";
@@ -160,7 +160,7 @@
  theUILang.country[ "me" ] = "黑山";
  theUILang.country[ "mg" ] = "马达加斯加";
  theUILang.country[ "mh" ] = "马绍尔群岛";
- theUILang.country[ "mk" ] = "马其顿共和国";
+ theUILang.country[ "mk" ] = "北马其顿";
  theUILang.country[ "ml" ] = "玛丽";
  theUILang.country[ "mm" ] = "缅甸";
  theUILang.country[ "mn" ] = "蒙";

@@ -5,7 +5,7 @@
  *
  * Initial Author: art.spb, December 2009.
  *
- * Author: 
+ * Author:
  */
 
  theUILang.peerComment		= "Add comment";
@@ -120,7 +120,7 @@
  theUILang.country[ "hu" ] = "Ungārija";
  theUILang.country[ "id" ] = "Indonēzija";
  theUILang.country[ "ie" ] = "Īrija";
- theUILang.country[ "il" ] = "Izraēla" 
+ theUILang.country[ "il" ] = "Izraēla"
  theUILang.country[ "im" ] = "Menas Sala";
  theUILang.country[ "in" ] = "Indija";
  theUILang.country[ "io" ] = "Britu Indijas okeāna teritorija";
@@ -160,7 +160,7 @@
  theUILang.country[ "me" ] = "Melnkalne";
  theUILang.country[ "mg" ] = "Madagaskara";
  theUILang.country[ "mh" ] = "Maršala Salas";
- theUILang.country[ "mk" ] = "Maķedonija";
+ theUILang.country[ "mk" ] = "Ziemeļmaķedonija";
  theUILang.country[ "ml" ] = "Mali";
  theUILang.country[ "mm" ] = "Mjanma";
  theUILang.country[ "mn" ] = "Mongolija";
@@ -242,7 +242,7 @@
  theUILang.country[ "tm" ] = "Turkmenistāna";
  theUILang.country[ "tn" ] = "Tunisija";
  theUILang.country[ "to" ] = "Tonga";
- theUILang.country[ "tr" ] = "Turcija", 
+ theUILang.country[ "tr" ] = "Turcija",
  theUILang.country[ "tt" ] = "Trinidāda un Tobāgo";
  theUILang.country[ "tv" ] = "Tuvalu";
  theUILang.country[ "tw" ] = "Taivāna";

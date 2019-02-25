@@ -5,7 +5,7 @@
  *
  * Initial Author: art.spb, December 2009.
  *
- * Author: 
+ * Author:
  */
 
  theUILang.peerComment		= "Add comment";
@@ -160,7 +160,7 @@
  theUILang.country[ "me" ] = "Montenegro";
  theUILang.country[ "mg" ] = "Madagaskar";
  theUILang.country[ "mh" ] = "Marshallinsaaret";
- theUILang.country[ "mk" ] = "Makedonia";
+ theUILang.country[ "mk" ] = "Pohjois-Makedonia";
  theUILang.country[ "ml" ] = "Mali";
  theUILang.country[ "mm" ] = "Myanmar";
  theUILang.country[ "mn" ] = "Mongolia";
