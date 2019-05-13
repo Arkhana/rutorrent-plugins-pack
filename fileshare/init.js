@@ -1,6 +1,9 @@
+
 plugin.loadMainCSS();
 
+
 plugin.attachPageToTabs($('<div>').attr("id","FileShare").addClass('table_tab').get(0), 'File Share');
+
 
 theWebUI.FS = {
 
@@ -123,6 +126,7 @@ theWebUI.FS = {
 		if(table) {table.resize(w,h);}
 	},
 
+
 	rename: function() {
 		var table = theWebUI.getTable("fsh");
 		if(table.created && plugin.allStuffLoaded) {
@@ -142,6 +146,7 @@ theWebUI.FS = {
 		table.clearRows();
 
 		$.each(data.list, function(ndx,item) {
+
 				table.addRowById({
 					name: item.file,
 					size: item.size,
@@ -161,8 +166,8 @@ theWebUI.FS = {
 			columns:
 			[
 				{ text: '',			width: "210px", id: "name",		type: TYPE_STRING },
-				{ text: theUILang.Size,		width: "60px",	id: "size",		type: TYPE_NUMBER },
-				{ text: '', 			width: "120px",	id: "time",		type: TYPE_STRING,	"align" : ALIGN_CENTER},
+				{ text: theUILang.Size,			width: "60px",	id: "size",		type: TYPE_NUMBER },
+				{ text: '', 			width: "120px", 	id: "time",		type: TYPE_STRING, 	"align" : ALIGN_CENTER},
 				{ text: '',			width: "80px", 	id: "pass",		type: TYPE_STRING },
 				{ text: '',			width: "310px",	id: "link",		type: TYPE_STRING }
 			],
@@ -173,6 +178,7 @@ theWebUI.FS = {
 
 
 	},
+
 
 	tableformat: function(table,arr) {
 		for(var i in arr)
@@ -201,18 +207,31 @@ theWebUI.FS = {
 			var table = theWebUI.getTable("fsh");
 			var target = id.split('_fsh_')[1];
 
+			if(table.selCount == 1) {
+				var link = theWebUI.getTable("fsh").getValueById('_fsh_'+target, 'link');
+				ZeroClipboard.setData("text/plain", link);
+			}
+
 			theContextMenu.add([theUILang.fDelete, function() {askYesNo(theUILang.FSdel, theUILang.FSdelmsg, "theWebUI.FS.del()" );}]);
 			theContextMenu.add([theUILang.FSedit, (table.selCount > 1) ? null : function() {theWebUI.FS.show(target, 'edit');}]);
 			theContextMenu.add([CMENU_SEP]);
-			theContextMenu.add([theUILang.FScopylink,(table.selCount > 1) ? null : function() {clip(theWebUI.getTable("fsh").getValueById('_fsh_'+target, 'link'));}]);
+			theContextMenu.add([theUILang.FScopylink,(table.selCount > 1) ? null : function() {}]);
+
 	   		theContextMenu.show();
+
+			if(table.selCount == 1) {
+				var copyBtn = theContextMenu.get(theUILang.FScopylink)[0];
+				new ZeroClipboard(copyBtn);
+			}
 
 			return(true);
 		}
 		return(false);
 	},
 
+
 	query: function(action, complete, err) {
+
 
 			$.ajax({
   				type: 'POST',
@@ -231,9 +250,13 @@ theWebUI.FS = {
 										theWebUI.FS.tableadd(data);}
  		});
 
+
 	}
 
 }
+
+
+
 
 plugin.config = theWebUI.config;
 theWebUI.config = function(data) {
@@ -243,12 +266,14 @@ theWebUI.config = function(data) {
 		plugin.config.call(this,data);
 }
 
+
 plugin.resizeBottom = theWebUI.resizeBottom;
 theWebUI.resizeBottom = function( w, h ) {
 
 		theWebUI.FS.resize(w, h);
 		plugin.resizeBottom.call(this,w,h);
 }
+
 
 plugin.onShow = theTabs.onShow;
 theTabs.onShow = function(id) {
@@ -259,6 +284,7 @@ theTabs.onShow = function(id) {
 			theWebUI.resize();
 	} else {$('#FS_refresh').hide(); plugin.onShow.call(this,id);}
 }
+
 
 plugin.flmMenu = theWebUI.fManager.flmSelect;
 theWebUI.fManager.flmSelect = function( e, id ) {
@@ -274,13 +300,21 @@ theWebUI.fManager.flmSelect = function( e, id ) {
 
 }
 
+
+
 plugin.onLangLoaded = function() {
 
 	injectScript('plugins/fileshare/settings.js.php', function() {theWebUI.FS.refresh();});
+	injectScript('plugins/fileshare/clip/ZeroClipboard.js', function() {
+								ZeroClipboard.config( { swfPath: 'plugins/fileshare/clip/ZeroClipboard.swf', forceHandCursor: true } );
+								ZeroClipboard.on("copy", ZeroClipboard.blur);
+								new ZeroClipboard();
+							});
 
 	if(this.enabled) {
 		plugin.renameTab('FileShare', theUILang.FSshow);
-		$('#tab_lcont').append('<script src="plugins/fileshare/clip/clip-j.js"></script><input type="button" id="FS_refresh" class="Button" value="'+theUILang.fRefresh+'" style="display: none;">');
+		$('#tab_lcont').append('<input type="button" id="FS_refresh" class="Button" value="'+theUILang.fRefresh+'" style="display: none;">');
+
 
 		var add = '<div class="cont fxcaret"><fieldset><legend>Options:</legend>'+
 				'<table border="0" cellspacing="0" cellpadding="0" >'+
@@ -297,15 +331,18 @@ plugin.onLangLoaded = function() {
 					'<input type="button" class="Cancel Button" value="'+theUILang.fDiagClose+'"/>'+
 				'</div>';
 
+
 		theDialogManager.make('FS_main', theUILang.FSshow, add, false);
 
 		$('#FS_addbut').click(function() {theWebUI.FS.add(this);});
 		$('#FS_editbut').click(function() {theWebUI.FS.edit(this);});
 		$('#FS_refresh').click(function() {theWebUI.FS.refresh();});
 
-	}
 
+
+	}
 };
+
 
 plugin.onRemove = function() {
 	this.removePageFromTabs('FileShare');
