@@ -1,5 +1,7 @@
 plugin.loadMainCSS();
 
+injectScript(plugin.path+"clip-j.js");
+
 plugin.attachPageToTabs($('<div>').attr("id","FileShare").addClass('table_tab').get(0), 'File Share');
 
 theWebUI.FS = {
@@ -280,7 +282,7 @@ plugin.onLangLoaded = function() {
 
 	if(this.enabled) {
 		plugin.renameTab('FileShare', theUILang.FSshow);
-		$('#tab_lcont').append('<script src="plugins/fileshare/clip/clip-j.js"></script><input type="button" id="FS_refresh" class="Button" value="'+theUILang.fRefresh+'" style="display: none;">');
+		$('#tab_lcont').append('<input type="button" id="FS_refresh" class="Button" value="'+theUILang.fRefresh+'" style="display: none;">');
 
 		var add = '<div class="cont fxcaret"><fieldset><legend>Options:</legend>'+
 				'<table border="0" cellspacing="0" cellpadding="0" >'+
