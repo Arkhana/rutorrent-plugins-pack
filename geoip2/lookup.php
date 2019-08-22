@@ -3,15 +3,21 @@
 
 	set_time_limit(0);
 	require_once( '../../php/util.php' );
+	require_once( '../../php/settings.php' );
 	require_once( "sqlite.php" );
 	eval( getPluginConf( 'geoip2' ) );
 
+	$theSettings = rTorrentSettings::get();
+
+	if($theSettings->isPluginRegistered('hostname'))
+		$retrieveHost = false;
+
 	function isValidCode( $country )
 	{
-		return( !empty($country) && (strlen($country)==2) && !ctype_digit($country[1]) );
+		return( !empty($country) && (strlen($country)==2) && !is_numeric($country[1]) );
 	}
 
-	$retrieveCountry = ($retrieveCountry && PHP_VERSION_ID >= 50400 && extension_loaded('phar'));
+	$retrieveCountry = ($retrieveCountry && version_compare(PHP_VERSION, '5.4.0', '>=') && extension_loaded('phar'));
 	if($retrieveCountry)
 	{
 		require_once 'geoip2.phar';

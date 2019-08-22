@@ -10,7 +10,7 @@ else
 
 	eval( getPluginConf( $plugin["name"] ) );
 
-	$retrieveCountry = ($retrieveCountry && PHP_VERSION_ID >= 50400 && extension_loaded('phar'));
+	$retrieveCountry = ($retrieveCountry && version_compare(PHP_VERSION, '5.4.0', '>=') && extension_loaded('phar'));
 	if($retrieveCountry)
 	{
 		require_once 'geoip2.phar';
@@ -35,13 +35,11 @@ else
 	}
 	$retrieveComments = ($retrieveComments && sqlite_exists());
 
-	if( $retrieveHost || $retrieveCountry || $retrieveComments )
+	if( $retrieveCountry || $retrieveHost || $retrieveComments )
 	{
-		$theSettings->registerPlugin($plugin["name"],$pInfo["perms"]);
+		$theSettings->registerPlugin($plugin["name"], $pInfo["perms"]);
 		if($retrieveCountry)
 			$jResult .= "plugin.retrieveCountry = true;";
-		if($retrieveHost)
-			$jResult .= "plugin.retrieveHost = true;";
 		if($retrieveComments)
 			$jResult .= "plugin.retrieveComments = true;";
 	}
